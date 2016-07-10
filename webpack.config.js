@@ -19,7 +19,9 @@ module.exports = {
             _common: path.join(base_path, 'common'),
             _components: path.join(base_path, 'components'),
             _util: path.join(base_path, 'util'),
-            _vuex: path.join(__dirname, 'vuex')
+            _vuex: path.join(__dirname, 'vuex'),
+
+            jquery: path.resolve(__dirname, 'node_modules', 'jquery')
         }
     },
     module: {
@@ -43,6 +45,10 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loader: "style!css!sass"
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                loader: 'file?name=dist/fonts/[name].[ext]'
             }
         ],
         vue: {

@@ -12,7 +12,11 @@
     export default {
         name: 'App',
         components: {
-            t:header: header
+            't:header': header
         }
     }
 </script>
+
+<style lang="sass">
+    @import "~./../../node_modules/materialize-css/bin/materialize.css";
+</style>
