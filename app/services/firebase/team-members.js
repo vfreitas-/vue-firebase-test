@@ -1,3 +1,10 @@
-import firebase from './connector';
+import Firebase from './base';
 
-const db = firebase.database()
+
+class Team extends Firebase {
+
+
+
+}
+
+export default Team

@@ -1,11 +1,12 @@
 <template lang="jade">
     nav
         .nav-wrapper.teal(style="padding: 0 1rem;")
-            a.brand-logo.left Dashboard
+            a.brand-logo.left Scrum
             ul.right
                 li
-                    a
-                        i.material-icons search
+                    a(v-link="") Projects
+                li
+                    a(v-link="") Users
 </template>
 
 <script>

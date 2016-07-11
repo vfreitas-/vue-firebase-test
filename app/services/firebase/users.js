@@ -1,8 +1,10 @@
-import firebase from './connector';
-
-const db = firebase.database()
+import Firebase from './base'
 
 
-export const fetchAllUsers = function () {
-    return db.ref('/users').once('value');
+class User extends Firebase {
+
+
+
 }
+
+export default new User
