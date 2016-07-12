@@ -1,20 +1,17 @@
 import {
-    APP_CONFIG
+    
 } from '../mutation-types'
 
-export default function(data) {
-    const state = {
-        settings: data
-    };
 
-    const mutations = {
-        [APP_CONFIG] (state, settings) {
-            state.settings = settings;
-        }
-    };
+const state = {
 
-    return {
-        state,
-        mutations
-    };
+};
+
+const mutations = {
+
+}
+
+export default {
+    state,
+    mutations
 }

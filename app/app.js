@@ -1,5 +1,5 @@
+window.$ = window.jQuery = require('jquery')
 import "es6-promise"
-import "materialize-css"
 
 import Vue from 'vue'
 import Router from 'vue-router'

@@ -1,4 +1,5 @@
-var path = require( 'path' )
+const path = require( 'path' )
+const webpack = require("webpack")
 
 const base_path = path.resolve(__dirname, 'app')
 
@@ -21,7 +22,7 @@ module.exports = {
             _util: path.join(base_path, 'util'),
             _vuex: path.join(__dirname, 'vuex'),
 
-            jquery: path.resolve(__dirname, 'node_modules', 'jquery')
+            // jquery: path.resolve(__dirname, 'node_modules', 'jquery')
         }
     },
     module: {
@@ -61,5 +62,11 @@ module.exports = {
     babel: {
         presets: ['es2015'],
         plugins: ['transform-runtime']
-    }
+    },
+    plugins: [
+       new webpack.ProvidePlugin({
+           $: "jquery",
+           jQuery: "jquery"
+       })
+    ]
 }
