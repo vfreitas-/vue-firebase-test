@@ -1,10 +1,13 @@
 <template lang="jade">
     .modal(v-el:modal)
-        .modal-content
-            slot(name="header")
-            slot(name="body")
-        .modal-footer
-            slot(name="footer")
+        template(v-if="form")
+            slot(name="content")
+        template(v-else)
+            .modal-content
+                slot(name="header")
+                slot(name="body")
+            .modal-footer
+                slot(name="footer")
 </template>
 
 <script>
@@ -14,6 +17,10 @@
             name: {
                 type: String,
                 required: true
+            },
+            form: {
+                type: Boolean,
+                default: false
             }
         },
         events: {

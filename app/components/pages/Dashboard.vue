@@ -3,19 +3,18 @@
         breadcrumb(:links="[{path: '/',name: 'Dashboard'}]")
         h3 Dashboard
 
-        table.striped.highlight.responsive-table
-            thead
-                tr
-                    th(data-field="id")
-                    th(data-field="name")
-            tbody
-                tr(v-for="project in projects")
-                    td
-                    td
-                    td
-        modal(name="project-form")
-            h4(slot="header")
-            project-form(slot="body")
+        .container
+            table.striped.highlight
+                thead
+                    tr
+                        th(data-field="id") ID
+                        th(data-field="name") Name
+                tbody
+                    tr(v-for="(id, project) in projects")
+                        td {{ id }}
+                        td {{ project.name }}
+        modal(name="project-form" v-bind:form="true")
+            project-form(slot="content")
 
         a.btn-floating.btn-large.waves-effect.waves-light.teal(
             @click="$broadcast('modal-show', 'project-form')"
@@ -35,12 +34,13 @@
         name: 'Dashboard',
         data: function() {
             return {
-                show: false
+                show: false,
+                projects: []
             }
         },
         ready: function () {
-            ProjectService.onceVal().then(projects => {
-                console.log(projects.val())
+            ProjectService.onVal(projects => {
+                this.projects = projects.val()
             })
         },
         components: {

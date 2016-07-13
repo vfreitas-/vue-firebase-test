@@ -1,5 +1,6 @@
 
 import firebase from 'firebase'
+import Validator from 'validatorjs'
 import {config} from './../../config'
 
 const firebaseApp = firebase.initializeApp(config)
@@ -9,6 +10,8 @@ class Firebase {
     constructor () {
         this._base_path = ''
         this._firebase = firebaseApp
+
+        this.create_rules = {}
     }
 
     onceVal (path = null) {
@@ -19,6 +22,16 @@ class Firebase {
         this.database.ref(this._path(path)).on('value', result => {
             callback(result)
         })
+    }
+
+    push (data) {
+        let validation = new Validator(data, this.create_rules)
+
+        if (validation.fails()) {
+            return new Promise( (resolve, reject) => reject(validation.errors))
+        } else {
+            return this.database.ref(this._base_path).push(data)
+        }
     }
 
     get database () {
