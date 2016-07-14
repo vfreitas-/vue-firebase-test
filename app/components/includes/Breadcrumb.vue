@@ -10,13 +10,7 @@
 
 <script>
     export default {
-        name: 'Breadcrumb',
-        props: {
-            links: {
-                type: Array,
-                default: []
-            }
-        }
+        name: 'Breadcrumb'
     }
 </script>
 

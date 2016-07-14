@@ -3,7 +3,9 @@
         header
             t:header
         main
-            router-view
+            breadcrumb
+            .container
+                router-view
         footer
 </template>
 
@@ -11,12 +13,14 @@
 <script>
     import store from '_vuex/store'
     import header from './includes/Header.vue'
+    import breadcrumb from './includes/Breadcrumb.vue'
 
     export default {
         name: 'App',
         store,
         components: {
-            't:header': header
+            't:header': header,
+            breadcrumb
         }
     }
 </script>
