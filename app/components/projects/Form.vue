@@ -19,7 +19,6 @@
         button.btn.waves-effect.waves-light(
             @click="save()"
         ) Save
-            i.material-icons send
 </template>
 
 <script>
@@ -36,6 +35,11 @@
                 errors: {
                     name: null
                 }
+            }
+        },
+        events: {
+            'modal-closing-project-form': function () {
+                this.clear()
             }
         },
         methods: {

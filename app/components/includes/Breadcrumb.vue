@@ -1,11 +1,11 @@
 <template lang="jade">
-    .teal.lighten-3
+    .teal.lighten-3(v-if="$breadcrumb.length")
         .nav-wrapper
             .col.s12
                 a.breadcrumb(
-                    v-for="link in links"
-                    v-link="{path: link.path, activeClass: 'active'}"
-                ) {{ link.name }}
+                    v-for="(index, route) in $breadcrumb"
+                    v-link="{path: route.handler.path, activeClass: 'active'}"
+                ) {{ route.handler.breadcrumb }}
 </template>
 
 <script>

@@ -37,10 +37,15 @@
         },
         methods: {
             show: function () {
-                $(this.$els.modal).openModal()
+                $(this.$els.modal).openModal({
+                    complete: this.closing
+                })
             },
             hide: function () {
                 $(this.$els.modal).closeModal()
+            },
+            closing: function () {
+                this.$broadcast(`modal-closing-${this.name}`)
             }
         }
     }

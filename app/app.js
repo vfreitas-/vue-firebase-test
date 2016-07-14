@@ -4,6 +4,7 @@ import "es6-promise"
 import Vue from 'vue'
 import Router from 'vue-router'
 import { sync } from 'vuex-router-sync'
+import Breadcrumb from './plugins/breadcrumb'
 import store from './vuex/store'
 
 import App from './components/App.vue'
@@ -12,6 +13,7 @@ import routes from './routes'
 
 //Install plugins
 Vue.use(Router)
+Vue.use(Breadcrumb)
 
 // Set up a new router
 const router = new Router({

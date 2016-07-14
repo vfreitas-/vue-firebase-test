@@ -17,10 +17,12 @@ module.exports = {
     resolve: {
     // add alias for application code directory
         alias:{
+            _app: base_path,
             _common: path.join(base_path, 'common'),
             _components: path.join(base_path, 'components'),
+            _services: path.join(base_path, 'services'),
             _util: path.join(base_path, 'util'),
-            _vuex: path.join(__dirname, 'vuex'),
+            _vuex: path.join(base_path, 'vuex'),
 
             // jquery: path.resolve(__dirname, 'node_modules', 'jquery')
         }
