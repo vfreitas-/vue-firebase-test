@@ -1,6 +1,7 @@
 
 import firebase from 'firebase'
 import Validator from 'validatorjs'
+import moment from 'moment'
 import {config} from './../../config'
 
 const firebaseApp = firebase.initializeApp(config)
@@ -26,6 +27,8 @@ class Firebase {
 
     push (data) {
         let validation = new Validator(data, this.create_rules)
+
+        data.created_at = moment().format('YYYY-MM-DD HH:mm:ss')
 
         if (validation.fails()) {
             return new Promise( (resolve, reject) => reject(validation.errors))

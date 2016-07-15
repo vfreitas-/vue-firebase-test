@@ -9,6 +9,7 @@
                 tr(v-for="(id, project) in projects")
                     td {{ id }}
                     td {{ project.name }}
+        button.waves-light.waves-effect.btn.teal(@click="fetchProjects")
     modal(name="project-form" v-bind:form="true")
         project-form(slot="content")
     a.btn-floating.btn-large.waves-effect.waves-light.teal.fixed(
